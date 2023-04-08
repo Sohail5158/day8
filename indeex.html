@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Form</title>
+  </head>
+<style>
+    body{
+        text-align: center;
+        background-color: black;
+        color: antiquewhite;
+        font-size: 20px;
+    }
+</style>
+  <body>
+    <header>
+      <h1>Welcome to My Form</h1>
+    </header>
+    <main>
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="gender">Gender:</label>
+        <input type="text" id="gender" name="gender"><br><br>
+        <button type="button" onclick="submitForm()">Submit</button>
+      </form>
+      <div id="data"></div>
+    </main>
+    <footer>
+      <p>My Form</p>
+    </footer>
+
+    <script>
+      function submitForm() {
+        const name = document.getElementById("name").value;
+        const gender = document.getElementById("gender").value;
+        const dataDiv = document.getElementById("data");
+
+        const newDataDiv = document.createElement("div");
+        newDataDiv.innerHTML = `Name: ${name}, Gender: ${gender}`;
+        
+        const deleteButton = document.createElement("button");
+        deleteButton.innerHTML = "Delete";
+        deleteButton.addEventListener("click", function() {
+          newDataDiv.remove();
+        });
+
+        newDataDiv.appendChild(deleteButton);
+        dataDiv.appendChild(newDataDiv);
+      }
+    </script>
+  </body>
+</html>
